@@ -1,0 +1,223 @@
+@import "variables";
+@import "mixins";
+
+/**
+* * realty category (+misc) from cre
+**/
+
+.category-toolbar {
+    margin: 20px 0;
+    -webkit-align-items: center;
+    align-items: center;
+    .floating-tabs {
+        margin-right: 16px;
+    }
+
+    @include mq(768, max) {
+        padding: 0;
+    }
+
+    .btn-on-map {
+        margin-left: auto;
+        margin-right: 12px;
+    }
+    .btn-default-view {
+        margin-top: 16px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .category-toolbar-xs > * {
+        font-size: 14px;
+        padding-left: 3px;
+        padding-right: 3px;
+        text-align: center;
+    }
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+    @include brs-24-16;
+    overflow: hidden;
+}
+
+.category-map {
+    width: 100%;
+    height: -webkit-calc(100vh - 120px);
+    height: calc(100vh - 120px);
+}
+.variant-map {
+    height: 500px;
+}
+
+@include mq(768, max) {
+    .map {
+        min-height: 300px;
+    }
+}
+
+.mobile {
+    .btn-map {
+        display: none;
+    }
+}
+
+.category-map.fixed {
+    position: absolute;
+}
+.category-map.fixed.fixed-bottom {
+    top: auto !important;
+    bottom: 0;
+}
+.category-map.map-loading {
+    background: url("../../images/map-loading.jpg") no-repeat center center / cover;
+}
+.flex-group div.isrel {
+    position: relative;
+}
+
+.property-item-variants {
+    margin: 10px 0;
+    width: 100%;
+    -webkit-columns: 120px;
+    -moz-columns: 120px;
+    columns: 120px;
+    max-width: 450px;
+}
+@supports (display: grid) {
+    .property-item-variants {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        -webkit-column-gap: 30px;
+        -moz-column-gap: 30px;
+        column-gap: 30px;
+    }
+}
+.property-item-variant {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+.property-item-variants li {
+    padding-bottom: 0;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+    padding-bottom: 5px;
+}
+
+.cat-view input {
+    @include visually-hidden;
+}
+
+@media screen and (min-width: 1600px) {
+    body.category .wrap {
+        max-width: 1900px;
+    }
+}
+
+.map-list {
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    margin-right: 0;
+    @include mq(768, max) {
+        margin-right: -8px;
+    }
+
+    .realty-item {
+        width: 100% !important;
+        margin-right: 0 !important;
+        @include mq(1200) {
+            width: -webkit-calc(50% - 8px) !important;
+            width: calc(50% - 8px) !important;
+            &:nth-child(odd) {
+                margin-right: 16px !important;
+            }
+        }
+    }
+}
+
+.flex-group div.isrel {
+    position: relative;
+}
+/* @include mq(768) {
+    .realty-list-outer {
+        width: -webkit-calc(60% - 16px);
+        width: calc(60% - 16px);
+    }
+
+    .category-map-outer {
+        width: -webkit-calc(40% - 16px);
+        width: calc(40% - 16px);
+    }
+} */
+@include mq(768) {
+    .realty-list-outer,
+    .category-map-outer {
+        width: -webkit-calc(50% - 16px);
+        width: calc(50% - 16px);
+    }
+}
+.flex-group.map-list > .item + .item {
+    position: relative;
+    padding: 8px 0 0 0;
+}
+.category-map {
+    position: absolute;
+    width: 100%;
+    right: 0;
+}
+.category-map.fixed {
+    position: fixed;
+    top: 115px;
+}
+.category-map.fixed.fixed-bottom {
+    position: absolute;
+    top: auto !important;
+    bottom: 0;
+    width: 100% !important;
+    right: 0 !important;
+}
+
+.map-list .realty-item__footer {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    .realty-item__buttons {
+        margin-left: 0;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        .btn:not(:last-child) {
+            margin-right: 8px;
+        }
+    }
+}
+
+@include mq(1200, max) {
+    .nice-select.select-sort {
+        flex-grow: 0;
+        min-width: 0;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        &.select-lg {
+            width: 48px;
+            height: 48px;
+        }
+        &::after {
+            right: 50%;
+            top: 50%;
+            margin-top: -8px;
+            margin-right: -8px;
+        }
+        .current {
+            font-size: 0;
+        }
+    }
+
+    [data-btn="open-filter"] {
+        width: 100%;
+        margin-top: 8px;
+    }
+}

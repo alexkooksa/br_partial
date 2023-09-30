@@ -1,0 +1,1 @@
+<button class="btn-outline on-grey btn--icon-only btn-lg btn-save-search" {if $CI->dx_auth->is_logged_in()}onclick="to_searchlist('{$current_url}')" {else:}onclick="popup('no_auth', 'Необходима авторизация')" {/if}>{svg_icon('save-search')}</button>

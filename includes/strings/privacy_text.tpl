@@ -1,0 +1,1 @@
+<p class="privacy-text">Отправляя форму, вы соглашаетесь на <a class="underlined" target="_blank" href="{site_url('privacy-policy')}">{tlang('обработку персональных данных')}</a></p>

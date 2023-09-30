@@ -1,0 +1,172 @@
+.multi-select-container {
+    display: inline-block;
+    position: relative;
+}
+
+.multi-select-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+    float: left;
+    min-width: 120px;
+    background: #fff;
+    margin: 1em 0;
+    box-shadow: 0 0 10px 4px rgba(68, 68, 68, 0.11);
+    display: none;
+    border-radius: 6px;
+    max-height: none !important;
+}
+
+.multi-select-menuitem {
+    display: block;
+    padding: 0.6em 1em 0.6em 30px;
+    white-space: nowrap;
+}
+
+.multi-select-menuitem--titled:before {
+    display: block;
+    font-weight: bold;
+    content: attr(data-group-title);
+    margin: 0 0 0.25em -20px;
+}
+
+.multi-select-menuitem--titledsr:before {
+    display: block;
+    font-weight: bold;
+    content: attr(data-group-title);
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.multi-select-menuitem + .multi-select-menuitem {
+    /* padding-top: 0; */
+}
+
+.multi-select-presets {
+    border-bottom: 1px solid #ddd;
+}
+
+.multi-select-menuitem input {
+    position: absolute;
+    margin-top: 0.25em;
+    margin-left: -20px;
+}
+
+.multi-select-button {
+    display: inline-block;
+    font-size: inherit;
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: -0.5em;
+    background-color: #fff;
+    border: 1px solid #bdced9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.multi-select-container--open .multi-select-menu {
+    display: block;
+}
+
+.multi-select-container--positioned .multi-select-menu {
+    /* Avoid border/padding on menu messing with JavaScript width calculation */
+    box-sizing: border-box;
+}
+
+.multi-select-container--positioned .multi-select-menu label {
+    /* Allow labels to line wrap when menu is artificially narrowed */
+    white-space: normal;
+}
+
+.multi-select-container.borderless {
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+}
+
+.multi-select-container.borderless .multi-select-button {
+    border: 0;
+    box-shadow: none;
+}
+
+.multi-select-menuitem input {
+    opacity: 0;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+.multi-select-menuitem {
+    position: relative;
+    display: block;
+    padding-left: 25px;
+    cursor: pointer;
+    line-height: 18px;
+    text-align: left;
+    line-height: 1;
+    margin-left: 15px;
+}
+.multi-select-menuitem:hover {
+    color: #4a90e2;
+}
+.multi-select-menuitem:hover::before {
+    border-color: #4a90e2;
+}
+.multi-select-menuitem::before,
+.multi-select-menuitem::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+}
+.multi-select-menuitem::before {
+    height: 18px;
+    width: 18px;
+    border: 1px solid #a0aec0;
+    left: 0px;
+    top: 6px;
+    border-radius: 3px;
+}
+.multi-select-menuitem:hover::before {
+    border-color: #635b5c;
+}
+.multi-select-menuitem::after {
+    height: 5px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    left: 5px;
+    top: 11px;
+    border-color: #fff;
+}
+.multi-select-menuitem.active::after {
+    content: none;
+}
+.multi-select-menuitem.active::after {
+    content: "";
+}
+.multi-select-menuitem.active::before {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+}
+.multi-select-menuitems {
+    padding: 10px 0;
+}
+
+.multi-select-container.select-rounded .multi-select-button {
+    border-radius: 50px;
+    box-shadow: none;
+    line-height: 1;
+    padding: 12px 15px;
+}

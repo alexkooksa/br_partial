@@ -1,0 +1,1 @@
+<div class="popup-fixed-bottom"><a href="{$current_url}" data-filter-submit class="btn btn-primary btn-lg">Показать объекты</button></a></div>

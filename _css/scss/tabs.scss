@@ -1,0 +1,185 @@
+@import "variables";
+@import "mixins";
+
+.tab-item {
+    cursor: pointer;
+}
+
+.floating-tabs {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    position: relative;
+    margin-top: 0;
+    .tab-item {
+        background-color: $light-100;
+        color: $grey-100;
+        font-weight: 500;
+        // padding: 5px;
+        cursor: pointer;
+
+        &:first-of-type {
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+        &:last-of-type {
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        span {
+            display: block;
+            border-radius: 50px;
+            padding: 10px 20px;
+            width: 100%;
+            text-align: center;
+            @include mq(768, max) {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            position: relative;
+            z-index: 1;
+            transition: 0.2s all ease-in-out;
+            white-space: nowrap;
+        }
+        &:hover span {
+            color: $base-black;
+        }
+        &.active span {
+            background-color: $primarycolor;
+            color: #fff;
+        }
+        &.active:hover span {
+            background-color: $primarycolor !important;
+            color: #fff;
+        }
+        /*         &:first-of-type span {
+            background-color: $primarycolor;
+            color: #fff;
+        } */
+    }
+    &.white-tabs {
+        .tab-item {
+            background-color: #fff;
+        }
+    }
+    &.clicked .tab-item:not(.active) span {
+        background-color: transparent;
+        color: #70748a;
+    }
+    &.clicked .tab-item:not(.active):hover span {
+        color: $base-black;
+    }
+    .tab-slider {
+        display: none !important; /* temp */
+        position: absolute;
+        background-color: $primarycolor;
+        top: 0;
+        bottom: 0;
+        visibility: hidden;
+        border-radius: 50px;
+        z-index: 0;
+        left: 0;
+        width: 100px;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+    &.clicked .tab-slider {
+        visibility: visible;
+    }
+    &.grey-color {
+        .tab-item {
+            background-color: #74798e;
+        }
+    }
+    &.tabs-small .tab-item span {
+        padding: 3px 10px;
+    }
+}
+
+@include mq(768, max) {
+    .floating-tabs .tab-item {
+        -webkit-flex: 1;
+        flex: 1;
+        text-align: center;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+}
+
+h2 + .floating-tabs {
+    margin-top: 20px;
+    @include mq(768, max) {
+        margin-top: 12px;
+    }
+}
+.floating-tabs + .content-list {
+    margin-top: 20px;
+}
+.tab-content:not(.active) {
+    display: none;
+}
+
+.dashed-tabs {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    > * {
+        margin-right: 20px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+}
+
+.filter-tabs {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 8px 0 24px;
+    .tab-item {
+        margin: 16px 8px 0 0;
+        span {
+            white-space: nowrap;
+            font-weight: 500;
+            display: block;
+            border-radius: 50px;
+            background-color: $light-100;
+            border: 1px solid $light-100;
+            padding: 8px 20px;
+            color: #444;
+            position: relative;
+            z-index: 1;
+            transition: 0.2s all ease-in-out;
+            @include mq(768, max) {
+                font-size: 14px;
+                padding: 8px 14px;
+            }
+        }
+        &:not(.active):hover span {
+            border-color: $base-black;
+            color: $base-black;
+        }
+        &.active span {
+            background-color: $primarycolor;
+            color: #fff;
+        }
+
+    }
+    &.white-tabs .tab-item:not(.active):hover span {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: #fff;
+        color: #fff;
+    }
+    &.white-tabs .tab-item span {
+        border: 1px solid #fff;
+        color: #fff;
+        background-color: transparent;
+    }
+    &.white-tabs .tab-item.active span {
+        background-color: #fff;
+        color: $primarycolor;
+    }
+}

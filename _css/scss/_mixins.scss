@@ -1,0 +1,73 @@
+@mixin mq($width, $type: min) {
+    @if $type == max {
+        $width: $width - 1;
+    }
+    @media screen and (#{$type}-width: #{$width}px) {
+        @content;
+    }
+}
+
+@mixin brs-24-16 {
+    border-radius: 16px;
+    @media screen and (min-width: 1024px) {
+        border-radius: 24px;
+    }
+}
+
+@mixin visually-hidden {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+@mixin arrow-down {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    display: block;
+    width: 7px;
+    height: 7px;
+    margin-top: -3px;
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 66% 66%;
+    -ms-transform-origin: 66% 66%;
+    transform-origin: 66% 66%;
+    pointer-events: none;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+}
+
+@mixin hover-primary {
+    &:hover {
+        color: $primarycolor;
+    }
+}
+
+@mixin object-fit($fit: fill, $position: null) {
+    -o-object-fit: $fit;
+    object-fit: $fit;
+    @if $position {
+        -o-object-position: $position;
+        object-position: $position;
+        font-family: "object-fit: #{$fit}; object-position: #{$position}";
+    } @else {
+        font-family: "object-fit: #{$fit}";
+    }
+}
+
+@mixin absolute-centering {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
